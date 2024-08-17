@@ -1,0 +1,45 @@
+.edt-suggestions{
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-gutter: 0;
+    white-space: nowrap;
+    width: 200vw;
+    transition: 0.5s;
+  }
+  .edt-suggestions::-webkit-scrollbar {
+    width: 0px;
+    height: 2px;
+  }
+  
+  /* Track */
+  .edt-suggestions::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+
+  }
+   
+  /* Handle */
+  .edt-suggestions::-webkit-scrollbar-thumb {
+    background: rgb(26 135 84) !important; 
+    border-radius: 10px;
+    
+  }
+  
+  /* Handle on hover */
+  .edt-suggestions::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
+  .edt-card{
+    position:relative
+  }
+  .edt-details{
+    position:absolute;
+    bottom: 0;
+    background: #00000041;
+  }
+  .scroll-icon
+  {
+    z-index: 3;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }

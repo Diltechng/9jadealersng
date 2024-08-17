@@ -1,0 +1,23 @@
+footer{
+    background:linear-gradient(90deg, #198754, #212529);
+    min-height: 40vh;
+    display: flex;
+    border-top:solid 1px #198754;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+}
+.footer-box {
+    line-height: 50px;
+    font-size: 17px;
+    font-weight: 900;
+}
+li.footer-list{
+    cursor: pointer;
+}
+li.footer-list:hover{
+ color: #198754;
+ transition: ease-in 0.5s;
+ font-size: 20px;
+}

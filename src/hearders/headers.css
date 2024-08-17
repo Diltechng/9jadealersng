@@ -1,0 +1,17 @@
+button.profile-btn{
+    width: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: none;
+    border: none;
+}
+button.profile-btn:hover{
+    background: none;
+    border: none;
+}
+button.profile-btn:active{
+    background: none !important;
+    border: none !important;
+}
