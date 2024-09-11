@@ -2,10 +2,12 @@
 import { initializeApp } from "firebase/app";
 import {
     getAuth, 
-    signInWithRedirect,
+    signOut,
     signInWithPopup,
     GoogleAuthProvider,
-
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged
 } from "firebase/auth";
 import {
     getFirestore,
@@ -38,16 +40,21 @@ provider.setCustomParameters({
 });
  export const auth = getAuth();
  export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+// export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
+
+
 export const db = getFirestore();
-export const createUserDocumentFromAuth = async (userAuth) =>{
+export const createUserDocumentFromAuth = async (userAuth, additionalData ={}) =>{
+  if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
-  console.log(userDocRef);
+  //console.log(userDocRef);
 
   const userSnapShot = await getDoc(userDocRef);
-  console.log(userSnapShot);
-  console.log(userSnapShot.exists());
-
+  //console.log(userSnapShot);
+  //console.log(userSnapShot.exists());
+//create a user on firestore
   if(! userSnapShot.exists()){
+
     const {displayName, email} = userAuth;
     const createdAt = new Date();
 
@@ -56,6 +63,7 @@ export const createUserDocumentFromAuth = async (userAuth) =>{
         displayName,
         email,
         createdAt,
+        ...additionalData,
       });
     } catch (error) {
       console.log('error creating user', error.message)
@@ -63,4 +71,22 @@ export const createUserDocumentFromAuth = async (userAuth) =>{
     return userDocRef;
   }
 
+};
+//create with email and password
+export const createAuthUserWithEmailAndPassword = async (email, password) =>{
+  
+  if(!email || !password) return;
+  return await createUserWithEmailAndPassword(auth, email, password);
+}
+export const signInUserWithEmailAndPassword = async (email, password) =>{
+  
+  if(!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
+}
+export const onAuthStateChangedListener= (callback) => {
+  return onAuthStateChanged(auth, callback);
+};
+export const signOutUser = async () => {
+  const auth = getAuth();
+  await signOut(auth);
 };

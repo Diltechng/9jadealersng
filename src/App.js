@@ -4,9 +4,10 @@ import './App.css';
 //import Footer from './footer/Footer.component';
 import Navbar from './hearders/Navbar.component';
 import Home from './home/Home.';
-import SignIn from './Sign-In/SignIn';
+import SignIn from './components/SignIn';
 //import Categories from './home/Categories/Categories';
 import {Routes, Route} from 'react-router-dom';
+import Single from './home/Single';
 //import { BrowserRouter } from 'react-router-dom';
 //import Categorymenu from './home/Categories/Categorymenu';
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Navbar/>}>
         <Route index element={<Home/>}/>
-        <Route path='signIn' element={<SignIn/>}/>
+        <Route path='Single' element={<Single/>}/>
+        <Route path='SignIn' element={<SignIn/>}/>
       </Route>
     </Routes>
     </div>
