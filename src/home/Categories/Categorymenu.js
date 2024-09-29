@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Navbar from "../../hearders/Navbar.component";
 import ItemSearch from "../../searchbox/ItemSearch";
-import useSearch from "../../Searchhook";
+import useSearch from "../../Hooks/Searchhook";
 import CategoryCard from "./CategoryCard";
 import { BsColumnsGap} from "react-icons/bs";
 import Categories from "./Categories";

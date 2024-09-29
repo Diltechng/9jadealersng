@@ -2,7 +2,7 @@ import './editors-sugg.style.css';
 import {BsStars } from "react-icons/bs";
 //import Navbar from '../../hearders/Navbar.component';
 import ItemSearch from '../../searchbox/ItemSearch';
-import useSearch from '../../Searchhook';
+import useSearch from '../../Hooks/Searchhook';
 import EditorsCardList from './EdittorsCardList';
 import { useEffect } from 'react';
 import EditorsCard from './EditorsCard';
@@ -19,7 +19,7 @@ const EditorsSugg = () =>{
       } catch (error) {
         console.error('You are Offline')
       }
-      }, [])
+      })
     return(
         <>
         <EditorsCard/>

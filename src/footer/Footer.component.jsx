@@ -1,57 +1,50 @@
 import './footer.css';
 import D from './D.png';
-import { BsBuildingAdd, BsEnvelope, BsEnvelopePaper, BsFacebook, BsHouse, BsLightbulb, BsLinkedin, BsNewspaper, BsPalette, BsParagraph, BsPersonAdd, BsPersonFill, BsPhone, BsQuestion, BsSignDeadEnd, BsTelephone, BsWhatsapp, BsX } from 'react-icons/bs';
-import { FcAdvertising, FcClapperboard, FcLibrary, FcPhone, FcReading, FcReadingEbook, FcRules, FcServices } from 'react-icons/fc';
+import Addpost from '../home/AddPost/Addpost';
+import { BsShop, BsHouse,BsBell, BsChat, BsPerson, BsBookmarks} from 'react-icons/bs';
+import {FaUserFriends} from 'react-icons/fa';
+import ProfileBtn from '../components/ProfileBtn';
+import {Link, useLocation} from 'react-router-dom';
+import {useState} from 'react';
+import useDeviceType from '../Hooks/Devicewidthhook';
+
 const Footer = () =>{
+  const {isMobile} = useDeviceType();
+
+    const menu =[
+      {name: 'Home', icon:<BsHouse size={25} />, path:'/', index: 1},
+      {name: 'Friends', icon:<FaUserFriends size={25} />, path:'/Friends', index: 2},
+      {name: 'Notifications', icon:<BsBell size={25} />, path:'/Notification', index: 3},
+      {name: 'Showroom', icon:<BsShop size={25}/>, path:'/Showroom', index: 4},
+      {name: 'Message', icon:<BsChat size={25} />, path:'/Message', index: 5},
+      {name: 'Bookings', icon:<BsBookmarks size={25} />, path:'/Bookmark', index: 6},
+      {name: 'Profile', icon:<BsPerson size={25} />, path:'/Profile', index: 7}
+    ]
+    const [active, setActive] = useState();
+    const handleClick = (index) =>{
+      setActive(index);
+    }
+    const location = useLocation();
     return(
-    <footer className="footer w-100 text-dark d-flex" style={{backgroundImage: `url(${D})`}}>
-
-        <div className='footer-box w-25 p-3 d-flex justify content-center'>
-        <ul>
-                <li className='footer-list'>Home <BsHouse/></li>
-                <li className='footer-list'>Blog <BsNewspaper/></li>
-                <li className='footer-list'>FAQ <BsQuestion/></li>
-                <li className='footer-list'>About <BsPersonFill/></li>
-            </ul>
-        </div>
-        <div className='footer-box w-25 p-3 d-flex justify-content-center'>
-        <ul>
-                <li className='footer-list'>Talk to us <BsTelephone/></li>
-                <li className='footer-list'>Become a Dealer <BsPersonAdd/></li>
-                <li className='footer-list'>Report Abuse/Scam <BsSignDeadEnd/></li>
-                <li className='footer-list'>Ads<FcAdvertising/> </li>
-            </ul>
-        </div>
-        <div className='footer-box w-25 p-3 d-flex justify-content-center'>
-        <ul>
-                <li className='footer-list'>Email <BsEnvelope/></li>
-                <li className='footer-list'>Whatsapp <BsWhatsapp/></li>
-                <li className='footer-list'>X <BsX/></li>
-                <li className='footer-list'>Facebook <BsFacebook/></li>
-                <li className='footer-list'>LinkedIn <BsLinkedin/></li>
-
-            </ul>
-        </div>
-        <div className='footer-box w-25 p-3 d-flex justify-content-center'>
-        <ul>
-                <li className='footer-list'>Other Services <FcServices/></li>
-                <li className='footer-list'>Build Your Own <BsBuildingAdd/></li>
-                <li className='footer-list'>License <FcReading/></li>
-                <li className='footer-list'>Terms of Use <FcReadingEbook/></li>
-            </ul>
-        </div>
-        <div className='footer-box w-25 p-3 d-flex justify-content-center'>
-        <ul>
-                <li className='footer-list'>Rules <FcRules/></li>
-                <li className='footer-list'>Advice <BsLightbulb/></li>
-                <li className='footer-list'>Useful Contacts <FcPhone/></li>
-                <li className='footer-list'>LearnMore <FcLibrary/></li>
-            </ul>
-        </div>
-
-       
-
-        </footer>
+        <>  
+        {isMobile &&
+        <>
+        <Addpost/>
+    <footer className="footer w-100 text-secondary position-sticky bottom-0 bg-light p-2"> 
+      <div className="container d-flex justify-content-between position-relative">
+      {menu.map(({name, icon, path, index})=>{
+        return(
+          <Link key={index} to={path} className={`footer-icon ${location.pathname === path ? 'active' : '' } text-secondary`} onClick={()=>{handleClick(index)}}>
+          {icon}
+          <label className="footer-label text-secondary w-100">{name}</label>
+        </Link>
+        )
+      })}
+      </div>
+    </footer>
+    </>
+        }
+        </>
     )
 }
 export default Footer;

@@ -1,19 +1,25 @@
+import {useState, useEffect} from "react";
 const Test = () =>{
+  const [progress, setProgress] = useState(0);
+useEffect(()=>{
+  let i = 0;
+  const interval = setInterval(() =>{
+    if( i <= 100){
+      setProgress(i);
+      i++;
+    } else {
+      clearInterval(interval)
+    }
+  }, 30)
+  return () => clearInterval(interval);
+},[])
     return(
-    <div className="App">
-    <p>
-        <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-    Toggle width collapse
-  </button>
-</p>
-<div style={{minHeight: 700}}>
-  <div className="collapse collapse-horizontal" id="collapseWidthExample">
-    <div className="card card-body" style={{width: 300}}>
-      This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
-    </div>
-  </div>
-</div>
-    </div>
+      <>
+{progress < 100 ? (
+        <progress value={progress} max="100" className="w-100" /> // Display progress bar
+      ) : (
+        <p>Loading Complete!</p> // Display message when done
+      )}      </>
     )
 }
 export default Test;

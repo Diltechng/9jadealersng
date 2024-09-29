@@ -1,0 +1,129 @@
+
+[
+    {
+        "id": 1,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/autopart.png"
+        ],
+        "Text":"Lorem Ipsum Dolor naso we see am for here ooooo Lorem Ipsum Dolor naso we see am for here ooooo Lorem Ipsum Dolor naso we see am for here ooooo Lorem Ipsum Dolor naso we see am for here ooooo",
+        "price":23.5
+
+    },
+    {
+        "id": 2,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/autopart.png"
+                 ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+    },
+    {
+        "id": 3,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/autopart.png"
+        ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+    },
+    {
+        "id": 4,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/autopart.png",
+            "/images/autopart.png",
+            "/images/autopart.png",
+            "/images/car.png"
+
+        ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+    },
+    {
+        "id": 5,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/autopart.png"
+         ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+
+    },
+    {
+        "id": 6,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/house.png"
+        ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+
+    },
+    {
+        "id": 7,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/Car.png",
+            "/images/autopart.png"       
+          ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+
+    },
+    {
+        "id": 8,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/house.png",
+            "/images/Car.png",
+            "/images/autopart.png"
+         ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+    },
+    {
+        "id": 9,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/autopart.png"
+         ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+    },
+    {
+        "id":10,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/house.png",
+            "/images/autopart.png"
+         ],
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+
+    },
+    {
+        "id": 11,
+        "title": "Audi",
+        "author": "CarsHuntersNg",
+        "image": [
+            "/images/car.png"
+        ]
+        
+        ,
+        "Text":"Lorem Ipsum Dolor",
+        "price":23.5
+
+    }
+]

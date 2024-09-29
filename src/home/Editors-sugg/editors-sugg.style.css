@@ -32,11 +32,7 @@
   .edt-card{
     position:relative
   }
-  .edt-details{
-    position:absolute;
-    bottom: 0;
-    background: #00000041;
-  }
+  
   .scroll-icon
   {
     z-index: 3;

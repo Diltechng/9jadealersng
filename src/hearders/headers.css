@@ -1,5 +1,6 @@
 button.profile-btn{
     width: 100px;
+    height: 20px;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -8,10 +9,19 @@ button.profile-btn{
     border: none;
 }
 button.profile-btn:hover{
-    background: none;
-    border: none;
+    background: none !important;
+    border: none !important;
 }
 button.profile-btn:active{
     background: none !important;
     border: none !important;
 }
+nav{
+    transition: 0.9s ease-in;
+}
+    nav.onScroll{
+        background: linear-gradient(90deg, #19875448, #21252954) !important;
+        
+        transition: 0.9s ease-in;
+    };
+    

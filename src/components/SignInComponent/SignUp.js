@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {FaSignInAlt, FaSpinner} from 'react-icons/fa';
 import {useNavigate} from "react-router-dom";
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../utils/firebase/firbase.utils';
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firbase.utils';
 const defaultValues = {
     displayName :'',
     email: '',

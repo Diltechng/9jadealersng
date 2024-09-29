@@ -5,6 +5,7 @@ import autopart from './images/autopart.png';
 import exterior from './images/exterior.png';
 import interior from './images/interior.png';
 import house from './images/house.png';
+import Card from "../../components/Card.component";
 const Distress = () =>{
         const Details = [
             {
@@ -86,20 +87,9 @@ const Distress = () =>{
             <>
          <h3 className='title w-100 text-dark p-2'>Distress Sales <BsFire size={20} fill='#ffc107'/></h3>
              <a href='www.example.com' className='w-100 d-flex justify-content-end p-1 text-success'>Add Group</a>
-            <div className='d-flex flex-wrap p-3'>
-    <div className='d-flex flex-wrap justify-content-center'>
-      {Details.map(({title, id, author, image}) =>(
-            <div key={id} className='edt-card d-flex m-3 shadow-lg rounded'>
-              <img
-                src={image}
-                alt={id}
-              />
-              <div className='edt-details w-100 text-light'>
-                <h3> {title}</h3>
-                <p>{author}</p>
-                </div>
-            </div>
-            ))};
+            <div className='container'>
+    <div className='row'>
+            <Card/>
             </div>
             <div className='d-flex justify-content-center w-100'>
             </div>

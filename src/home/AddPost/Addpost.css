@@ -1,0 +1,10 @@
+
+.modal-body form textarea:hover{
+    border: none;
+}
+.modal-body form textarea::selection{
+    border: none;
+}
+.modal-body form textarea:active{
+    border: none;
+}

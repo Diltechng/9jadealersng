@@ -31,8 +31,7 @@ Handle
 
 
 .App-header {
-  background-color: #fff;
-  min-height: 30px !important;
+  max-height: max-content !important;
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -41,7 +40,7 @@ Handle
     color: white;
     position: sticky;
     top: 0;
-    z-index: 9;
+    z-index: 1000;
 }
 
 .App-link {
@@ -58,7 +57,7 @@ Handle
   font-size: larger;
   display: flex;
 }
-.search-container{
+.header-container{
   height: 30vh;
   background: linear-gradient(90deg, #198754, #212529);
 }
@@ -66,7 +65,6 @@ button.prim-btn-search{
   border: 0.5px solid #ffffff80
 }
 .icon-container-rounded{
-  height: 45px;
   flex-direction: column;
   border: none;
   background: none;
@@ -79,13 +77,10 @@ width: max-content;
 height: max-content;
 border-radius: 50%;
 text-align: center;
-line-height: 7px;
+line-height: 5px;
 vertical-align: middle;
 padding: 15%;
 z-index: 9;
-}
-.circle-icon:active{
-  background: blue !important;
 }
 :hover{
   opacity: 1;
@@ -98,10 +93,6 @@ ul.nav-links{
 .prim-btn-search{
   opacity: 0.5;
   -webkit-opacity: 0.5
-}
-:hover{
-  opacity: 1;
-  -webkit-opacity: 1
 }
 .nav-link:active{
   border-bottom: 5px solid green;
@@ -118,3 +109,57 @@ form{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media only screen and (max-width:925px) {
+  #sidebar{
+      position: fixed !important;
+      
+  }
+  }
+  @media only screen and (min-width: 767px) {
+    .searchbar{
+      width: 100% !important
+    }
+  }
+  
+  #sidebar {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;  
+    position: sticky;
+    top:60px; 
+    transition: width 0.3s ease;
+    z-index: 200;
+  }
+  
+  #sidebar-nav {
+    padding: 0;   }
+  
+  .list-group-item {
+    display: flex;
+    max-height: 100%;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  .list-group-item:hover {
+    background: linear-gradient(90deg, #198754, #212529) !important;
+    color:#fff !important;
+  }
+  .list-group-item.active{
+    background: linear-gradient(90deg, #198754, #212529) !important;
+    color:#fff !important;
+    font-size: small;
+    transition: 0.3s ease-in;
+
+  }
+  
+  .sidebar-scrollable {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+  .footer-icon.active{
+    color:green !important;
+    font-weight: 900;
+    size: 30;
+  }

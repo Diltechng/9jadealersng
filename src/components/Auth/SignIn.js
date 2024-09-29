@@ -1,11 +1,12 @@
-import { signInWithGooglePopup, createUserDocumentFromAuth, /*signInWithGoogleRedirect,*/ auth, signInUserWithEmailAndPassword} from '../utils/firebase/firbase.utils';
+import { signInWithGooglePopup, createUserDocumentFromAuth, /*signInWithGoogleRedirect,*/ auth, signInUserWithEmailAndPassword} from '../../utils/firebase/firbase.utils';
 import {BsGoogle, BsX, BsFacebook} from 'react-icons/bs';
-import {useState} from "react";
+import {useState, useContext} from "react";
 import {FaSpinner} from 'react-icons/fa';
 import { IoLogIn } from "react-icons/io5";
-import Sidebar from '../hearders/Sidebar';
-import SignUp from './SignUp';
+import Sidebar from '../../hearders/Sidebar';
+import SignUp from '../SignInComponent/SignUp';
 import {useNavigate} from 'react-router-dom';
+import {UserContext} from '../../context/User.context';
 
 const defaultValues = {
   email: '',
@@ -19,6 +20,7 @@ const [formFields, setFormFields] = useState(defaultValues);
     const [isLoading, setIsLoading] = useState(false);
     const [isSigningIn, setIsSigningIn] = useState(false);
     const navigate = useNavigate();
+    const {setCurrentUser} = useContext(UserContext); 
     //reset fields
     const resetFormFields = () => {
       setFormFields(defaultValues);
@@ -32,18 +34,19 @@ const [formFields, setFormFields] = useState(defaultValues);
       setIsLoading(true);
       
       try{
-       const res = await signInUserWithEmailAndPassword(email, password);
+       const user = await signInUserWithEmailAndPassword(email, password);
+       setCurrentUser(user);
        if (!email || !password) {
         return setError('❌ Both email and password fields are required');
       }
       setTimeout(()=>{
-        if (res){
+        if (user){
           navigate('/')
         }
       }, 3000)
       
        setSuccess(true);
-       console.log(res);
+       console.log(user);
        resetFormFields();
       } catch(error){
         console.error(error.message);

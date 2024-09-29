@@ -59,7 +59,7 @@ const Search = () => {
       const customPlaceholder =(props) =>{
         return(
         <components.Placeholder {...props}>
-        <div style={{ display: 'flex', alignItems: 'center', fontWeight: 900 }}>
+        <div style={{ display: 'flex', alignItems: 'center', fontSize:20, fontWeight: 500 }}>
         <BsSearch style={{ marginRight: 8 }}/>
       {props.children}
         </div>
@@ -69,8 +69,8 @@ const Search = () => {
       const CustomOption = (props) => {
         return (
           <components.Option {...props}>
-                    <div style={{ display: 'flex', alignItems: 'center', alignContent:'center', fontWeight: 300 }}>
-          <div style={{fontSize:30}}>{props.data.icon}</div>   <div className='p-2' style={{fontSize: 20}}>{props.data.label}</div>
+                    <div style={{ display: 'flex', alignItems: 'center', alignContent:'center', fontWeight: 100, zIndex: 3000 }}>
+          <div style={{fontSize:25}}>{props.data.icon}</div>   <div className='p-2' style={{fontSize: 20}}>{props.data.label}</div>
             </div>
           </components.Option>
         );
@@ -86,7 +86,8 @@ const Search = () => {
       };
     return(
         <>
-          <AsyncSelect className="w-50 rounded" 
+          <AsyncSelect className="w-100 rounded-lg" 
+          
               isLoading = {isLoading}
               placeholder = 'General Search'
               isSearchable

@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 //import EditorsSugg from './home/Editors-sugg/EditorsSugg';
 //import Category from './home/Categories/Categorymenu';
 import { BrowserRouter} from 'react-router-dom';
+import { ProductsProvider } from './context/Products.context';
+import { BookmarkProvider } from './context/Bookmark.context';
 //import Latest from './latest/Latest.Component';
 //import Categorymenu from './home/Categories/Categorymenu';
 
@@ -16,7 +18,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <BrowserRouter>
+  <ProductsProvider>
+  <BookmarkProvider>
     <App/>
+    </BookmarkProvider>
+    </ProductsProvider>
   </BrowserRouter>
   </React.StrictMode>
  
