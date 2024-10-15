@@ -1,39 +1,31 @@
 import { useEffect, useState } from "react";
 
 const useSearch = () =>{
-    
-   /* const [searchField, setSearchField] = useState('');
-    const [items, setItems] = useState([]);
-    useEffect (() =>{
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response)=> response.json())
-        .then((users)=> setItems(users));
-    
-      }, [])
-    const filteredItem = items.filter((item) =>{
-        return item.name.toLocaleLowerCase().includes(searchField);
-       
-    });
-    const onSearch = (event) =>{
+      const [searchField, setSearchfield] = useState('');
+      const [category, setCategory] = useState([]);
+      useEffect (() =>{
+        const getItems =async () =>{
+          try{
+            const fetchItems = await fetch('/data.json');
+            const response = await fetchItems.json();
+            setCategory(response);
+          }
+         catch(error){
+          console.error('failed', error);
+        }
+      }
+      getItems();
+      }, [category])
+        const filteredItems = category.filter((categories)=>{
+          return categories.Category.toLocaleLowerCase().includes(searchField)
+      }
+      )
+      const onSearch = (event)=>{
         const searchFieldString = event.target.value.toLocaleLowerCase();
-        setSearchField(searchFieldString);
-        console.log(searchFieldString)
-    };*/
-    const [searchField, setSearchfield] = useState(''); //[value, setValue]
-  const [monsters, setMonsters] = useState([]);
-  
-    const filteredMonsters = monsters.filter((monster)=>{
-      return monster.name.toLocaleLowerCase().includes(searchField)
-  }
-  )
-  
-
-  const onSearch = (event)=>{
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-      setSearchfield(searchFieldString);
-   } 
+          setSearchfield(searchFieldString);
+       } 
     return (
-        {filteredMonsters, onSearch, setMonsters}
+        {filteredItems, onSearch, setCategory}
     )
 }
 export default useSearch;

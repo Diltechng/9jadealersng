@@ -94,7 +94,7 @@ const [formFields, setFormFields] = useState(defaultValues);
     </div>
   </div>
   <div className="row flex-wrap w-100 m-3 justify-content-around">
-    <div className="col-4 p-2">
+    <div className="col-lg-4 col-sm-6 col-md-6 p-2">
     <form className='bg-light p-2 h-100' onSubmit={handleSubmit}>
     <label className="text-secondary text-capitalize font-weight-bold"><h2>Sign-In <IoLogIn fill="green"/></h2> </label>
     {error && <small className="form-text text-muted"><h6 className="text-danger">{error}</h6></small>}
@@ -138,7 +138,7 @@ const [formFields, setFormFields] = useState(defaultValues);
         <button type="submit" className="btn btn-success">Sign-In</button>
     </form>
     </div>
-    <div className="col-6 p-2">
+    <div className="col-lg-4 col-sm-6 col-md-6 p-2">
     <SignUp/>
     </div>
         </div>

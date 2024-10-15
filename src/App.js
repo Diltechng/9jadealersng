@@ -12,6 +12,10 @@ import Footer from './footer/Footer.component';
 import ContactUs from './ContactUs.component';
 import Sidebar from './hearders/Sidebar';
 import Bookmark from './components/Bookmarks/Bookmark.component';
+import Categories from './home/Categories/Categories';
+import Message from './home/message/Message';
+import Friends from './home/friends/Friends';
+import Groups from './home/groupsComp/Groups.component';
 
 const App = () => {
   //progress bar
@@ -34,6 +38,10 @@ const App = () => {
         <Route index element={<Home/>}/>
         <Route path='ContactUs' element={<ContactUs/>}/>
         <Route path='Showroom' element={<Showroom/>}/>
+        <Route path='Categories/*' element={<Categories/>}/>
+        <Route path='Message' element={<Message/>}/>
+        <Route path='Friends' element={<Friends/>}/>
+        <Route path='AddGroup' element={<Groups/>}/>
         <Route path='Bookmark' element={<Bookmark/>}/>
         <Route path='SignIn' element={<SignIn/>}/>
       </Route>

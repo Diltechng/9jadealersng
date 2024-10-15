@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "Category": "Automobile",
+      "image": "/images/autopart.png",
+      "path": "categories/automobile",
+      "items": [
+        {
+          "id": 1.1,
+          "title": "Audi",
+          "author": "CarsHuntersNg",
+          "image": [
+            "/images/autopart.png",
+            "/images/Car.png",
+            "/images/bikes.png"
+        ],
+          "Text": "Lorem Ipsum Dolor naso we see am for here ooooo",
+          "price": 23.5
+        }
+      ]
+    },
+    {
+        "id": 2,
+        "Category": "Bikes",
+        "image": "/images/bikes.png",
+        "path": "categories/bikes",
+        "items": [
+          {
+            "id": 2.1,
+            "title": "kawasaki",
+            "author": "CarsHuntersNg",
+            "image": [
+              "/images/bikes.png",
+              "/images/autopart.png",
+            "/images/Car.png",
+            "/images/bikes.png"
+          ],
+            "Text": "Lorem Ipsum Dolor naso we see am for here ooooo jjjj",
+            "price": 23.5
+          }
+        ]
+      }
+  ]

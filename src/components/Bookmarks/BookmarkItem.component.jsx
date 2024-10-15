@@ -12,11 +12,11 @@ const BookmarkItem = ({bookmarkItem}) =>{
     if (!bookmarkItem) {
         return null; // Return null if bookmarkItem is undefined
       }
-    const {id, author, title, Text, image} = bookmarkItem;
-    const isBookmarked = bookmarkItems.some(bookmarkItem => bookmarkItem.id === id);
+    const {index, author, title, Text, image} = bookmarkItem;
+    const isBookmarked = bookmarkItems.some(bookmarkItem => bookmarkItem.index === index);
 
 return(
-    <div className="col-12 col-sm-6 col-md-7 col-lg-7 mb-3" key={id}>
+    <div className="col-12 col-sm-6 col-md-7 col-lg-7 mb-3" key={index}>
                     <div className="p-3 border bg-light h-100 d-flex" style={{flexDirection:'column', justifyContent: 'space-between'}}>
                     <div className="profile text-secondary d-flex mb-3 justify-content-evenly align-content-center h-25 w-100">
             <ProfileThumb/><span className="w-75 h-100 text-center  d-flex justify-content-start p-2 align-items-center" style={{fontWeight:700}}>{author}</span>
@@ -98,9 +98,9 @@ return(
                         </span>
                         <span className="col-2"><FaRegComments fill={'#43a047'} size={25}/>
                         </span>
-                        <span className="col-2" onClick={() => {
+                        <span key={index} className="col-2" onClick={() => {
                                         if (isBookmarked) {
-                                            removeItemBookmark({ id }); // Remove bookmark if already bookmarked
+                                            removeItemBookmark({ index }); // Remove bookmark if already bookmarked
                                         }
                                     }}>
 

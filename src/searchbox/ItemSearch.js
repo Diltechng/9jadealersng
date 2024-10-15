@@ -5,22 +5,14 @@ import useSearch from '../Hooks/Searchhook';
 import EditorsCardList from '../home/Editors-sugg/EdittorsCardList';
 import useDeviceType from '../Hooks/Devicewidthhook';
 import './search.css';
-const ItemSearch = (monsters) => {
+import Example from './Example';
+import Itemlist from './Itemlist';
+const ItemSearch = () => {
     const [show, setShow] = useState(false);
      const {isMobile, isDesktop, isTablet} = useDeviceType()
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-    const {filteredMonsters, onSearch, setMonsters} = useSearch()
-    useEffect(()=>{
-        try{
-            fetch('https://jsonplaceholder.typicode.com/users')
-            .then((Res) => Res.json())
-            .then((users) => setMonsters(users))
-        }
-        catch{
-            console.error()
-        }
-    },[])
+    const {filteredItems, onSearch} = useSearch()
     return(
         <>
                 {(isMobile || isTablet) &&
@@ -39,8 +31,7 @@ const ItemSearch = (monsters) => {
         </Modal.Header>
         <Modal.Body>
 
-        <EditorsCardList monsters={filteredMonsters}/>
-           
+                <Itemlist Category={filteredItems}/>
         
         </Modal.Body>
         <Modal.Footer className="d-flex flex-nowrap">

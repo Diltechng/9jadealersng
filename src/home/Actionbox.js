@@ -1,10 +1,11 @@
 import {useState} from 'react';
 import Latest from '../latest/Latest.Component.jsx';
 import EditorsSugg from './Editors-sugg/EditorsSugg.jsx';
-import Categorymenu from './Categories/Categorymenu.js';
+import Category from './Categories/Categorymenu.js';
 import Trending from './Trending/Trending.component.jsx';
 import Groups from './groupsComp/Groups.component.js';
 import Distress from './Distress/Distress.component.js';
+import Categories from './Categories/Categories.js';
 
 
 const useActionbox=()=>{
@@ -16,7 +17,7 @@ const useActionbox=()=>{
         case 'Editor':
             return <EditorsSugg/>;
         case 'Categories':
-            return <Categorymenu/>;
+            return <Categories/>;
         case 'Trending':
             return <Trending/>;
         case 'Groups':

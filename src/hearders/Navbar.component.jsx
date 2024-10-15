@@ -1,5 +1,6 @@
-import {BsBookmarks, BsBell, BsGrid1X2,BsSearch} from 'react-icons/bs';
-import {useState, useEffect, useRef} from "react";
+import {BsBookmarks, BsBell, BsGrid1X2, BsXLg, BsSearch} from 'react-icons/bs';
+import {useState, useEffect, useContext} from "react";
+import { SidebarContext } from '../context/SideBar.context';
 import navicon from './images/navicon.svg';
 import Search from '../searchbox/Search';
 import {Outlet, Link} from 'react-router-dom';
@@ -55,13 +56,25 @@ const Navbar = ()=>{
       window.removeEventListener('scroll', handleScroll);
     };
   });
+  const { openSideBar, toggleSidebar } = useContext(SidebarContext);
+
   
     return(
       <> 
         <header className= "App-header w-100 position-sticky top-0">
         <nav className={`bg-light shadow-lg p-3 w-100 d-flex justify-content-between align-items-center ${onScroll ? 'onScroll': ''}`} style={{maxHeight:60}}>
         <div  className="d-flex justify-content-start align-items-center">
-        <button type="button" data-bs-target="#sidebar" data-bs-toggle="collapse" className="border rounded-3 p-1 text-decoration-none"> <BsGrid1X2 size={25}/></button>
+        <button 
+        type="button" 
+        data-bs-target="#sidebar" 
+        data-bs-toggle="collapse" 
+        className="border rounded-3 p-1 text-decoration-none"
+         aria-expanded="false"
+        aria-controls="sidebar"
+        onClick={toggleSidebar}
+        > 
+        {openSideBar ? <BsXLg size={25}/> : <BsGrid1X2 size={25}/>}
+        </button>
         <Link
           className="App-link"
           to="/"

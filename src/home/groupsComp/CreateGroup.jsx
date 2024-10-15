@@ -7,13 +7,12 @@ import { FaQuestion, FaPencilAlt, FaPlusCircle } from "react-icons/fa";
 import { MdOutlineSaveAs } from "react-icons/md";
 import { VscSmiley } from "react-icons/vsc";
 import {Link, useNavigate} from 'react-router-dom';
-import "./Addpost.css";
 import ProfileThumb from '../../funtctionalComp/ProfileThumb';
 import useDeviceType from '../../Hooks/Devicewidthhook';
 import useAuthHook from '../../Hooks/AuthState';
 const defaultValues = null;
 
-const Addpost = () =>{
+export const CreateGroup = () =>{
   //modal
         const [show, setShow] = useState(false);
         const [smShow, setSmShow] = useState(false);
@@ -47,7 +46,7 @@ const Addpost = () =>{
         };
   return (
     <>
-  <span className="bg-success rounded-circle shadow-lg position-fixed" style={{
+  <span className="bg-light rounded-circle shadow-lg position-fixed" style={{
         bottom: 80,
         right: 20,
         width: 60,
@@ -75,6 +74,7 @@ const Addpost = () =>{
         </Modal.Header>
         <Modal.Body>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Control className="w-50" type="text" size="sm" placeHolder="Group Name" />
         <Form.Control 
         as="textarea" 
         ref ={textareaRef}
@@ -87,31 +87,19 @@ const Addpost = () =>{
             border: 'none',
             resize: 'none',
             lineHeight: 2}}
-        placeHolder="Add Text"
+        placeHolder="Group Description"
         rows={1} 
         />
+         <Form.Control className="w-50" type="image" size="sm" placeHolder="Group Image" />
       </Form.Group>
-      <Form.Control className="w-50" type="text" size="sm" placeHolder="Price/Budget" />
         <div className="post thumbnails">
-            <img src="#"/>
-            <img src="#"/>
-            <img src="#"/> 
             <img src="#"/>
         </div>
         </Modal.Body>
         <Modal.Footer className="d-flex flex-nowrap">
-            <div className="d-flex justify-content-between w-50">
-                <span><GoFileMedia/></span>
-                <span>GIF</span>
-                <span><FaQuestion/></span>
-                <span><VscSmiley/></span>
-            </div>
             <div className="d-flex justify-content-around w-50">
-          <Button variant="secondary" onClick={handleClose}>
-            Save as Draft <MdOutlineSaveAs/>
-          </Button>
-          <Button type="submit" variant="success" onClick={handleClose}>
-            Post <FaPencilAlt/>
+          <Button type="submit" variant="secondary" onClick={handleClose}>
+            Create
           </Button>
           </div>
         </Modal.Footer>
@@ -147,4 +135,3 @@ const Addpost = () =>{
     </>
     )
 }
-export default Addpost;

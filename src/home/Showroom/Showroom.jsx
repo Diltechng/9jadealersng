@@ -12,22 +12,12 @@ import useDeviceType from '../../Hooks/Devicewidthhook';
 import Footer from '../../footer/Footer.component';
 import Addpost from '../AddPost/Addpost';
 import SidebarLeft from '../../hearders/SidebarLeft';
+import {useContext, Fragment} from 'react';
+import { CategoriesContext } from '../../context/Categories.context';
 const Showroom = () =>{
     const {isMobile, isTablet, isDesktop} = useDeviceType();
+      const {categoriesMap} = useContext(CategoriesContext);
 
-//Show all products...
-    
-    /*const {onSearch, filteredMonsters, setMonsters} = useSearch('');
-    
-    useEffect (() =>{
-      try{
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response)=> response.json())
-        .then((users)=> setMonsters(users));
-      } catch (error) {
-        console.error('You are Offline')
-      }
-      }, [])*/
     return(
         <>
         <div className="container-fluid">
@@ -35,8 +25,12 @@ const Showroom = () =>{
           <Sidebar/>
           <main className="col ps-md-2 pt-2 w-75 d-flex flex-wrap justify-content-center">
         <BsStars className='title w-100 m-2 p-2' fill='red'/>
-            <Card style={{margin:4}}/>
-            {/*<EditorsCardList monsters = {filteredMonsters} />*/}
+        {categoriesMap.map((categories)=>{
+              const {items} = categories;
+              return(
+                <Card category={categories} item={items}/>
+              )
+            })}
           </main>
           <SidebarLeft/>
           <Addpost/>

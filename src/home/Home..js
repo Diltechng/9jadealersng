@@ -52,7 +52,7 @@ const Home =()=>{
         <div className="container-fluid">
       <div className="row flex-nowrap">
           <Sidebar/>
-          <main className="col ps-md-2 pt-2 w-75 d-flex flex-wrap justify-content-center">
+          <main className="col ps-md-2 pt-2 w-75 d-flex flex-wrap justify-content-center align-content-start">
                   <div className="w-100 d-flex justify-content-center">
         <div className='container header-container rounded w-100 shadow-lg m-3 p-2 d-flex justify-content-center align-items-center flex-wrap'>
         <div className='d-flex w-100 justify-content-end'>
@@ -82,6 +82,7 @@ const Home =()=>{
           <SidebarLeft/>
       </div>
   </div>
+  <Addpost/>
   {isMobile &&
     <Footer/>
     }
