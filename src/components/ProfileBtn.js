@@ -1,27 +1,11 @@
-import {signOutUser} from "../utils/firebase/firbase.utils";
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Dropdown} from 'react-bootstrap';
 import { BsPersonFill} from 'react-icons/bs';
 import ProfileThumb from "../funtctionalComp/ProfileThumb";
-import useAuthHook from "../Hooks/AuthState";
+import { useSignout } from "./Auth/Signout";
 
 const ProfileBtn = ({children, style}) =>{
-  const {currentUser, setCurrentUser} = useAuthHook();
-    const navigate = useNavigate();
-const handleSignOut = async () => {
-    try {
-      await signOutUser();
-      setCurrentUser(null); // Reset the user state after sign-out
-      //set time
-      setTimeout(()=>{
-        if (signOutUser){
-          navigate('/'); 
-        }
-      }, 3000)
-    } catch (error) {
-      console.error("Error signing out", error);
-    }
-  };
+  const {handleSignOut, currentUser} = useSignout();
 
   return(
     <Dropdown  style={style}>

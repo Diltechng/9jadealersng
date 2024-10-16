@@ -16,6 +16,7 @@ import Categories from './home/Categories/Categories';
 import Message from './home/message/Message';
 import Friends from './home/friends/Friends';
 import Groups from './home/groupsComp/Groups.component';
+import { Profile } from './home/Profile/Profile';
 
 const App = () => {
   //progress bar
@@ -44,6 +45,7 @@ const App = () => {
         <Route path='AddGroup' element={<Groups/>}/>
         <Route path='Bookmark' element={<Bookmark/>}/>
         <Route path='SignIn' element={<SignIn/>}/>
+        <Route path='Profile' element={<Profile/>}/>
       </Route>
     </Routes>
     </div>

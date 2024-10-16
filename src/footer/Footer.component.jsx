@@ -1,15 +1,17 @@
 import './footer.css';
 import D from './D.png';
 import Addpost from '../home/AddPost/Addpost';
-import { BsShop, BsHouse,BsBell, BsChat, BsPerson, BsBookmarks} from 'react-icons/bs';
+import { BsShop, BsHouse,BsBell, BsChat, BsPerson, BsBookmarks, BsDoorOpen} from 'react-icons/bs';
 import {FaUserFriends} from 'react-icons/fa';
 import ProfileBtn from '../components/ProfileBtn';
 import {Link, useLocation} from 'react-router-dom';
 import {useState} from 'react';
 import useDeviceType from '../Hooks/Devicewidthhook';
+import useAuthHook from "../Hooks/AuthState";
 
 const Footer = () =>{
   const {isMobile} = useDeviceType();
+  const {currentUser} = useAuthHook()
 
     const menu =[
       {name: 'Home', icon:<BsHouse size={25} />, path:'/', index: 1},
@@ -18,7 +20,12 @@ const Footer = () =>{
       {name: 'Showroom', icon:<BsShop size={25}/>, path:'/Showroom', index: 4},
       {name: 'Message', icon:<BsChat size={25} />, path:'/Message', index: 5},
       {name: 'Bookings', icon:<BsBookmarks size={25} />, path:'/Bookmark', index: 6},
-      {name: 'Profile', icon:<BsPerson size={25} />, path:'/Profile', index: 7}
+      {...currentUser ? (
+        {name: 'Profile', icon:<BsPerson size={25} />, path:'/Profile', index: 7}
+      ):(
+        {name: 'Signin', icon:<BsDoorOpen size={25} />, path:'/Signin', index: 7}
+      )}
+      
     ]
     const [active, setActive] = useState();
     const handleClick = (index) =>{
